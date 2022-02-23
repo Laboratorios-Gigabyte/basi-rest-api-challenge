@@ -14,8 +14,10 @@ import java.time.LocalDateTime;
 public class StudentController {
 
   @GetMapping("/hello")
-  public ResponseEntity<String> hello() {
-    return new ResponseEntity<>(LocalDateTime.now().toString(), HttpStatus.OK);
+  public ResponseEntity<ResponseApi> hello() {
+    return new ResponseEntity<>(ResponseApi.builder()
+      .response(LocalDateTime.now().toString())
+      .build(), HttpStatus.OK);
   }
 
 }
